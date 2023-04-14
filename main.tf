@@ -62,10 +62,7 @@ resource "aws_instance" "raghus_instance" {
 }
 
 
-resource "aws_s3_bucket" "raghus-bucket-89511" {
-  bucket = "raghus-bucket-89511"
-  acl = "private"
-}
+
 
 # resource "aws_s3_bucket_policy" "raghus-bucket-89511" {
 #   bucket = "aws_s3_bucket.raghus-bucket-89511"
