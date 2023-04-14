@@ -45,48 +45,7 @@ resource "aws_instance" "raghus_instance" {
   vpc_security_group_ids = [aws_security_group.raghu_sg.id]
   subnet_id              = tolist(data.aws_subnets.default_subnets.ids)[5]
 
-  # connection {
-  #   type        = "ssh"
-  #   host        = self.public_ipr
-  #   user        = "ec2-user"
-  #   private_key = file(var.aws_key_pair)
-  # }
-
-  # provisioner "remote-exec" {
-  #   inline = [
-  #     "sudo yum install httpd -y",
-  #     "sudo service httpd start",
-  #     "echo Hey ashutosh , this is my first ec2 instance  ${self.public_dns}| sudo tee /var/www/html/index.html"
-  #   ]
-  # }
+ 
 }
 
-
-
-
-# resource "aws_s3_bucket_policy" "raghus-bucket-89511" {
-#   bucket = "aws_s3_bucket.raghus-bucket-89511"
-
-#   policy = jsonencode({
-#     version = "2012-10-17"
-#     Statement=[
-#       {
-#         Action =[
-#           "s3.GetObject"
-#         ]
-#         Effect ="Allow"
-#         Resource = "${aws_s3_bucket.raghus-bucket-89511.arn}/*"
-#         Principal ={
-#           Service ="ec2.amazonaws.com"
-#         }
-#         Condition ={
-#           StringEquals={
-#             "aws:sourceVpc":"vpc-05c8d369712b48906"
-#           }
-#         }
-#       }
-#     ]
-#   })
-  
-# }
 
